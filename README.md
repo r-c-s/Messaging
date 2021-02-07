@@ -19,3 +19,9 @@ mvn test
 <pre>
 java -jar target/Messaging-1.0-SNAPSHOT.jar
 </pre>
+
+##### Hello world!
+
+<pre>
+curl -X GET localhost:8080/messaging/api/hello
+</pre>
