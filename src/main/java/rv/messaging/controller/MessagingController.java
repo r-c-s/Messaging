@@ -1,4 +1,4 @@
-package messaging.controller;
+package rv.messaging.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
