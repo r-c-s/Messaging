@@ -1,12 +1,12 @@
 package rv.messaging.services;
 
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 import rv.messaging.models.Message;
 import rv.messaging.models.MessageSendRequest;
 import rv.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Service
 public class MessageService {
@@ -19,7 +19,7 @@ public class MessageService {
 
     public void sendMessage(String sender, MessageSendRequest request, LocalDateTime date) {
         Message message = new Message(
-                UUID.randomUUID().toString(),
+                new ObjectId(),
                 sender,
                 request.getTo(),
                 request.getSubject(),

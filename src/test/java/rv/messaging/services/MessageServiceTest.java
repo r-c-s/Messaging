@@ -41,7 +41,7 @@ public class MessageServiceTest {
         verify(repository).save(captor.capture());
         Message saved = captor.getValue();
 
-        assertThat(saved.getId()).isNotNull();
+        assertThat(saved.get_id()).isNotNull();
         assertThat(saved.getFrom()).isEqualTo(sender);
         assertThat(saved.getTo()).isEqualTo(request.getTo());
         assertThat(saved.getSubject()).isEqualTo(request.getSubject());
