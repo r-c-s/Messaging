@@ -20,8 +20,7 @@ mvn test
 java -jar target/Messaging-1.0-SNAPSHOT.jar
 </pre>
 
-##### Hello world!
+##### Send message
 
 <pre>
-curl -X GET localhost:8080/messaging/api/hello
-</pre>
+curl -X POST localhost:8080/messaging/api/messages -d "{\"to\":\"someUser\",\"subject\":\"someSubject\",\"body\":\"someBody\"}" -H "Content-type:application/json"</pre>
