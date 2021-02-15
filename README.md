@@ -2,9 +2,13 @@
 
 A simple SpringBoot application for messaging
 
-<br>
 <hr>
-<br>
+
+#### Dependencies
+* [Auth](https://github.com/r-c-s/Auth) & [AuthApi](https://github.com/r-c-s/AuthApi)
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
+
+<hr>
 
 ##### Build
 
@@ -24,9 +28,7 @@ mvn test
 java -jar target/Messaging-1.0-SNAPSHOT.jar
 </pre>
 
-<br>
 <hr>
-<br>
 
 ##### Register on Auth service
 
