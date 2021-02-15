@@ -51,11 +51,11 @@ curl -b cookies -X POST host:port/messaging/api/messages -d "{\"to\":\"someUser\
 ##### Get inbox
 
 <pre>
-curl -b cookies -X GET host:port/messaging/api/messages/inbox
+curl -b cookies -X GET host:port/messaging/api/messages/inbox?unreadOnly=true|false
 </pre>
 
 ##### Get outbox
 
 <pre>
-curl -b cookies -X GET host:port/messaging/api/messages/outbox
+curl -b cookies -X GET host:port/messaging/api/messages/outbox?unreadOnly=true|false
 </pre>
