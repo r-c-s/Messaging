@@ -23,4 +23,11 @@ java -jar target/Messaging-1.0-SNAPSHOT.jar
 ##### Send message
 
 <pre>
-curl -X POST localhost:8080/messaging/api/messages -d "{\"to\":\"someUser\",\"subject\":\"someSubject\",\"body\":\"someBody\"}" -H "Content-type:application/json"</pre>
+curl -X POST localhost:8080/messaging/api/messages -d "{\"to\":\"someUser\",\"subject\":\"someSubject\",\"body\":\"someBody\"}" -H "Content-type:application/json"
+</pre>
+
+##### Get inbox
+
+<pre>
+curl -X GET localhost:8080/messaging/api/messages/inbox
+</pre>

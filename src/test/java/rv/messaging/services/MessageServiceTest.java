@@ -10,6 +10,7 @@ import rv.messaging.models.MessageSendRequest;
 import rv.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -47,5 +48,21 @@ public class MessageServiceTest {
         assertThat(saved.getSubject()).isEqualTo(request.getSubject());
         assertThat(saved.getBody()).isEqualTo(request.getBody());
         assertThat(saved.getDate()).isEqualTo(date);
+    }
+
+    @Test
+    public void testGetInbox() {
+        // Arrange
+        String user = "user";
+
+        List<Message> expectedResult = List.of(mock(Message.class));
+        when(repository.findByTo(user)).thenReturn(expectedResult);
+
+        // Act
+        List<Message> result = target.getInbox(user);
+
+        // Assert
+        verify(repository).findByTo(user);
+        assertThat(result).isEqualTo(expectedResult);
     }
 }

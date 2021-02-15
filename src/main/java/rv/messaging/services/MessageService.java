@@ -7,6 +7,7 @@ import rv.messaging.models.MessageSendRequest;
 import rv.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class MessageService {
@@ -27,5 +28,9 @@ public class MessageService {
                 date);
 
         repository.save(message);
+    }
+
+    public List<Message> getInbox(String user) {
+        return repository.findByTo(user);
     }
 }
