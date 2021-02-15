@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>rv</groupId>
+    <groupId>rcs</groupId>
     <artifactId>Messaging</artifactId>
     <version>1.0-SNAPSHOT</version>
 

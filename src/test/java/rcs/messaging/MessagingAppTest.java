@@ -1,4 +1,4 @@
-package rv.messaging;
+package rcs.messaging;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package rv.messaging.repositories;
+package rcs.messaging.repositories;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import rv.messaging.models.Message;
+import rcs.messaging.models.Message;
 
 import java.util.List;
 import java.util.Set;

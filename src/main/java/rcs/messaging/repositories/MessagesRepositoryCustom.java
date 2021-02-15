@@ -1,7 +1,7 @@
-package rv.messaging.repositories;
+package rcs.messaging.repositories;
 
 import org.bson.types.ObjectId;
-import rv.messaging.models.Message;
+import rcs.messaging.models.Message;
 
 import java.util.List;
 import java.util.Set;

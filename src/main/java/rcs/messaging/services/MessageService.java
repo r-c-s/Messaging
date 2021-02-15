@@ -1,10 +1,10 @@
-package rv.messaging.services;
+package rcs.messaging.services;
 
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
-import rv.messaging.models.Message;
-import rv.messaging.models.MessageSendRequest;
-import rv.messaging.repositories.MessagesRepository;
+import rcs.messaging.models.Message;
+import rcs.messaging.models.MessageSendRequest;
+import rcs.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;

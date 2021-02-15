@@ -1,4 +1,4 @@
-package rv.messaging.services;
+package rcs.messaging.services;
 
 import org.bson.types.ObjectId;
 import org.junit.Before;
@@ -6,9 +6,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import rv.messaging.models.Message;
-import rv.messaging.models.MessageSendRequest;
-import rv.messaging.repositories.MessagesRepository;
+import rcs.messaging.models.Message;
+import rcs.messaging.models.MessageSendRequest;
+import rcs.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;

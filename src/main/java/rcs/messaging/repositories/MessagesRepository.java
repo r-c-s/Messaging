@@ -1,7 +1,7 @@
-package rv.messaging.repositories;
+package rcs.messaging.repositories;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import rv.messaging.models.Message;
+import rcs.messaging.models.Message;
 
 public interface MessagesRepository extends MongoRepository<Message, String>, MessagesRepositoryCustom {
 }

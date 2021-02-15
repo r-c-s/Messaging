@@ -1,12 +1,12 @@
-package rv.messaging.controllers;
+package rcs.messaging.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rcs.auth.api.AuthUtils;
 import rcs.auth.api.exceptions.UnauthorizedException;
-import rv.messaging.models.Message;
-import rv.messaging.models.MessageSendRequest;
-import rv.messaging.services.MessageService;
+import rcs.messaging.models.Message;
+import rcs.messaging.models.MessageSendRequest;
+import rcs.messaging.services.MessageService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
