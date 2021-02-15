@@ -31,7 +31,7 @@ java -jar target/Messaging-1.0-SNAPSHOT.jar
 ##### Register on Auth service
 
 <pre>
-curl -X POST authhost:authport/auth/api/users -H "Content-type:application/json" -d "{"username":"USERNAME","password":"PASSWORD"}"
+curl -X POST authhost:authport/auth/api/users -H "Content-type:application/json" -d "{\"username\":\"USERNAME\",\"password\":\"PASSWORD\"}"
 </pre>
 
 ##### Login on Auth service
