@@ -8,6 +8,8 @@ import rv.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class MessageService {
@@ -26,13 +28,19 @@ public class MessageService {
                 request.getTo(),
                 request.getSubject(),
                 request.getBody(),
-                date);
+                date,
+                false);
 
         repository.save(message);
     }
 
     public List<Message> getInbox(String user) {
-        return repository.findByTo(user);
+        List<Message> messages = repository.findByTo(user);
+        Set<ObjectId> ids = messages.stream()
+                .map(Message::get_id)
+                .collect(Collectors.toSet());
+        repository.markAsRead(ids);
+        return messages;
     }
 
     public List<Message> getOutbox(String user) {

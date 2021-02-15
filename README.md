@@ -33,13 +33,13 @@ java -jar target/Messaging-1.0-SNAPSHOT.jar
 ##### Register on Auth service
 
 <pre>
-curl -X POST authhost:authport/auth/api/users -H "Content-type:application/json" -d "{\"username\":\"USERNAME\",\"password\":\"PASSWORD\"}"
+curl -X POST authhost:authport/api/users -H "Content-type:application/json" -d "{\"username\":\"USERNAME\",\"password\":\"PASSWORD\"}"
 </pre>
 
 ##### Login on Auth service
 
 <pre>
-curl -X POST authhost:authport/auth/login -d "username=USERNAME&password=PASSWORD" -c cookies
+curl -X POST authhost:authport/login -d "username=USERNAME&password=PASSWORD" -c cookies
 </pre>
 
 ##### Send a message using cookies from above

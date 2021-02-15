@@ -1,5 +1,6 @@
 package rv.messaging.services;
 
+import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import rv.messaging.repositories.MessagesRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -55,7 +57,9 @@ public class MessageServiceTest {
         // Arrange
         String user = "user";
 
-        List<Message> expectedResult = List.of(mock(Message.class));
+        Message message1 = new Message(new ObjectId(), null, null, null, null, null, false);
+        Message message2 = new Message(new ObjectId(), null, null, null, null, null, false);
+        List<Message> expectedResult = List.of(message1, message2);
         when(repository.findByTo(user)).thenReturn(expectedResult);
 
         // Act
@@ -63,6 +67,7 @@ public class MessageServiceTest {
 
         // Assert
         verify(repository).findByTo(user);
+        verify(repository).markAsRead(Set.of(message1.get_id(), message2.get_id()));
         assertThat(result).isEqualTo(expectedResult);
     }
 
