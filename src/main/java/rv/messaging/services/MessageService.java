@@ -34,8 +34,8 @@ public class MessageService {
         repository.save(message);
     }
 
-    public List<Message> getInbox(String user) {
-        List<Message> messages = repository.findByTo(user);
+    public List<Message> getInbox(String user, boolean unreadOnly) {
+        List<Message> messages = repository.getInbox(user, unreadOnly);
         Set<ObjectId> ids = messages.stream()
                 .map(Message::get_id)
                 .collect(Collectors.toSet());
@@ -43,7 +43,7 @@ public class MessageService {
         return messages;
     }
 
-    public List<Message> getOutbox(String user) {
-        return repository.findByFrom(user);
+    public List<Message> getOutbox(String user, boolean unreadOnly) {
+        return repository.getOutbox(user, unreadOnly);
     }
 }

@@ -42,16 +42,16 @@ public class MessagingController {
     }
 
     @GetMapping("/inbox")
-    public List<Message> getInbox(HttpServletRequest request) {
+    public List<Message> getInbox(HttpServletRequest request, @RequestParam boolean unreadOnly) {
         return authUtils.tryGetLoggedInUser(request)
-                .map(user -> messageService.getInbox(user.getUsername()))
+                .map(user -> messageService.getInbox(user.getUsername(), unreadOnly))
                 .orElseThrow(UnauthorizedException::new);
     }
 
     @GetMapping("/outbox")
-    public List<Message> getOutbox(HttpServletRequest request) {
+    public List<Message> getOutbox(HttpServletRequest request, @RequestParam boolean unreadOnly) {
         return authUtils.tryGetLoggedInUser(request)
-                .map(user -> messageService.getOutbox(user.getUsername()))
+                .map(user -> messageService.getOutbox(user.getUsername(), unreadOnly))
                 .orElseThrow(UnauthorizedException::new);
     }
 }

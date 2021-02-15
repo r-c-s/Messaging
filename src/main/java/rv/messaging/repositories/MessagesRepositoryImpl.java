@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import rv.messaging.models.Message;
 
+import java.util.List;
 import java.util.Set;
 
 public class MessagesRepositoryImpl implements MessagesRepositoryCustom {
@@ -17,6 +18,28 @@ public class MessagesRepositoryImpl implements MessagesRepositoryCustom {
 
     public MessagesRepositoryImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
+    }
+
+    @Override
+    public List<Message> getInbox(String user, boolean unreadOnly) {
+        Query query = Query.query(Criteria.where(Message.Fields.to).is(user));
+        if (unreadOnly) {
+            query = query.addCriteria(Criteria.where(Message.Fields.read).is(false));
+        }
+        return mongoTemplate.find(
+                query,
+                Message.class);
+    }
+
+    @Override
+    public List<Message> getOutbox(String user, boolean unreadOnly) {
+        Query query = Query.query(Criteria.where(Message.Fields.from).is(user));
+        if (unreadOnly) {
+            query = query.addCriteria(Criteria.where(Message.Fields.read).is(false));
+        }
+        return mongoTemplate.find(
+                query,
+                Message.class);
     }
 
     @Override

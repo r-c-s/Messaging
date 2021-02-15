@@ -60,13 +60,13 @@ public class MessageServiceTest {
         Message message1 = new Message(new ObjectId(), null, null, null, null, null, false);
         Message message2 = new Message(new ObjectId(), null, null, null, null, null, false);
         List<Message> expectedResult = List.of(message1, message2);
-        when(repository.findByTo(user)).thenReturn(expectedResult);
+        when(repository.getInbox(user, true)).thenReturn(expectedResult);
 
         // Act
-        List<Message> result = target.getInbox(user);
+        List<Message> result = target.getInbox(user, true);
 
         // Assert
-        verify(repository).findByTo(user);
+        verify(repository).getInbox(user, true);
         verify(repository).markAsRead(Set.of(message1.get_id(), message2.get_id()));
         assertThat(result).isEqualTo(expectedResult);
     }
@@ -77,13 +77,13 @@ public class MessageServiceTest {
         String user = "user";
 
         List<Message> expectedResult = List.of(mock(Message.class));
-        when(repository.findByFrom(user)).thenReturn(expectedResult);
+        when(repository.getOutbox(user, true)).thenReturn(expectedResult);
 
         // Act
-        List<Message> result = target.getOutbox(user);
+        List<Message> result = target.getOutbox(user, true);
 
         // Assert
-        verify(repository).findByFrom(user);
+        verify(repository).getOutbox(user, true);
         assertThat(result).isEqualTo(expectedResult);
     }
 }
