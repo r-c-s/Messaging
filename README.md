@@ -1,6 +1,6 @@
 ## Messaging
 
-A simple application for messaging
+A simple SpringBoot application for messaging
 
 <br>
 <hr>
