@@ -33,4 +33,8 @@ public class MessageService {
     public List<Message> getInbox(String user) {
         return repository.findByTo(user);
     }
+
+    public List<Message> getOutbox(String user) {
+        return repository.findByFrom(user);
+    }
 }

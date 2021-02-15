@@ -8,4 +8,5 @@ import java.util.List;
 public interface MessagesRepository extends MongoRepository<Message, String> {
 
     List<Message> findByTo(String to);
+    List<Message> findByFrom(String from);
 }

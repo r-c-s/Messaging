@@ -33,4 +33,9 @@ public class MessagingController {
     public List<Message> getInbox() {
         return messageService.getInbox("user");
     }
+
+    @GetMapping("/outbox")
+    public List<Message> getOutbox() {
+        return messageService.getOutbox("user");
+    }
 }

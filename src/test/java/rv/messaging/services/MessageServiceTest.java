@@ -65,4 +65,20 @@ public class MessageServiceTest {
         verify(repository).findByTo(user);
         assertThat(result).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void testGetOutbox() {
+        // Arrange
+        String user = "user";
+
+        List<Message> expectedResult = List.of(mock(Message.class));
+        when(repository.findByFrom(user)).thenReturn(expectedResult);
+
+        // Act
+        List<Message> result = target.getOutbox(user);
+
+        // Assert
+        verify(repository).findByFrom(user);
+        assertThat(result).isEqualTo(expectedResult);
+    }
 }
