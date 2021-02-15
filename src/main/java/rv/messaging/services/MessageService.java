@@ -19,6 +19,7 @@ public class MessageService {
     }
 
     public void sendMessage(String sender, MessageSendRequest request, LocalDateTime date) {
+        // todo: check if receiver exists
         Message message = new Message(
                 new ObjectId(),
                 sender,
