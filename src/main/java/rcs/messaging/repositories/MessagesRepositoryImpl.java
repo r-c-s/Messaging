@@ -26,9 +26,7 @@ public class MessagesRepositoryImpl implements MessagesRepositoryCustom {
         if (unreadOnly) {
             query = query.addCriteria(Criteria.where(Message.Fields.read).is(false));
         }
-        return mongoTemplate.find(
-                query,
-                Message.class);
+        return mongoTemplate.find(query, Message.class);
     }
 
     @Override
@@ -37,9 +35,7 @@ public class MessagesRepositoryImpl implements MessagesRepositoryCustom {
         if (unreadOnly) {
             query = query.addCriteria(Criteria.where(Message.Fields.read).is(false));
         }
-        return mongoTemplate.find(
-                query,
-                Message.class);
+        return mongoTemplate.find(query, Message.class);
     }
 
     @Override
